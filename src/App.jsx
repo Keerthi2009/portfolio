@@ -10,11 +10,11 @@ export default function App() {
 
   return (
     <>
-      {/* <SettingsButton onClick={() => setSettingsOpen(true)} /> */}
-      <SettingsPanel
-        open={settingsOpen}
-        onClose={() => setSettingsOpen(false)}
-      />
+<SettingsButton onClick={() => setSettingsOpen(true)} />
+<SettingsPanel
+  open={settingsOpen}
+  onClose={() => setSettingsOpen(false)}
+/>
 
       <Header />
 
@@ -53,9 +53,9 @@ export default function App() {
         </Section>
 
         <Section title="Contact">
-          <p><b>Email:</b> keerthi@example.com</p>
-          <p><b>GitHub:</b> github.com/keerthi</p>
-          <p><b>LinkedIn:</b> linkedin.com/in/keerthi</p>
+          <p><b>Email:</b> keerthinarayanaprasad2009@gmail.com</p>
+          <p><b>GitHub:</b> https://github.com/Keerthi2009</p>
+          {/* <p><b>LinkedIn:</b> linkedin.com/in/keerthi</p> */}
         </Section>
       </main>
 

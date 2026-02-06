@@ -1,40 +1,55 @@
-import { useContext, useRef } from "react";
-import { HexColorPicker } from "react-colorful";
+import {
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  Stack,
+  Typography,
+  Button
+} from "@mui/material";
+import { useContext } from "react";
 import { ThemeContext } from "../ThemeContext";
 
 export default function SettingsPanel({ open, onClose }) {
   const { primaryColor, setPrimaryColor } = useContext(ThemeContext);
-  const panelRef = useRef();
-
-  if (!open) return null;
-
-  const handleBackdropClick = (e) => {
-    if (panelRef.current && !panelRef.current.contains(e.target)) {
-      onClose();
-    }
-  };
 
   return (
-    <div className="settings-backdrop" onClick={handleBackdropClick}>
-      <div className="settings-panel" ref={panelRef}>
-        <div className="settings-header">
-          <h3>Settings</h3>
-          <button onClick={onClose}>✕</button>
-        </div>
+    <Dialog open={open} onClose={onClose} maxWidth="xs" fullWidth>
+      <DialogTitle>Settings</DialogTitle>
 
-        <div className="settings-section">
-          <p><b>Theme Color</b></p>
-          <HexColorPicker
-            color={primaryColor}
-            onChange={setPrimaryColor}
-          />
+      <DialogContent>
+        <Stack spacing={3}>
+          <div>
+            <Typography variant="subtitle2" gutterBottom>
+              Theme Color
+            </Typography>
 
-          <div className="color-preview">
-            <span style={{ background: primaryColor }} />
-            {primaryColor}
+            <input
+              type="color"
+              value={primaryColor}
+              onChange={(e) => setPrimaryColor(e.target.value)}
+              style={{
+                width: "100%",
+                height: 44,
+                border: "none",
+                background: "none",
+                cursor: "pointer"
+              }}
+            />
+
+            <Typography variant="caption">
+              Selected: {primaryColor}
+            </Typography>
           </div>
-        </div>
-      </div>
-    </div>
+
+          <Button
+            variant="outlined"
+            onClick={onClose}
+            sx={{ alignSelf: "flex-end" }}
+          >
+            Close
+          </Button>
+        </Stack>
+      </DialogContent>
+    </Dialog>
   );
 }
