@@ -149,3 +149,7 @@ footer {
   margin-top: 8px;
   font-weight: 600;
 }
+.github-container{
+  height: 600px;
+  overflow-y: scroll;
+}

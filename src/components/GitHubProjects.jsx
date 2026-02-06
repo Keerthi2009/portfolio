@@ -6,15 +6,10 @@ export default function GitHubProjects() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://api.github.com/users/Keerthi2009/repos?sort=updated")
+    fetch("https://api.github.com/users/Keerthi2009/repos?sort=created&direction=asc")
       .then(res => res.json())
       .then(data => {
-        const filtered = data.filter(
-          repo =>
-            !repo.fork &&
-            repo.description &&
-            repo.size > 50
-        );
+        const filtered = data;
         setRepos(filtered);
         setLoading(false);
       })
@@ -28,9 +23,9 @@ export default function GitHubProjects() {
       {!loading && repos.length === 0 && (
         <p>No public repositories to display.</p>
       )}
-
+      <div class="github-container">
       {repos.map(repo => (
-        <div key={repo.id} className="project">
+        <div key={repo.id} className="project ">
           <h3>{repo.name}</h3>
           <p>{repo.description}</p>
           <p>
@@ -42,6 +37,7 @@ export default function GitHubProjects() {
           </a>
         </div>
       ))}
+      </div>
     </Section>
   );
 }
