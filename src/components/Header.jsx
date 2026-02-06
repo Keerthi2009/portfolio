@@ -2,7 +2,7 @@ export default function Header() {
   return (
     <header>
       <h1>Keerthi Narayana Prasad</h1>
-      <p>Senior Software Engineer</p>
+      <h4 calss="role">Senior Software Engineer</h4>
     </header>
   );
 }

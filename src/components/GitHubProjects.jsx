@@ -6,7 +6,7 @@ export default function GitHubProjects() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://api.github.com/users/Keerthi2009/repos?sort=created&direction=asc")
+    fetch("https://api.github.com/users/Keerthi2009/repos?sort=created&direction=desc")
       .then(res => res.json())
       .then(data => {
         const filtered = data;
