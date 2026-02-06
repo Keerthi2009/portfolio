@@ -139,3 +139,13 @@ footer {
 .settings-button:hover {
   transform: scale(1.05);
 }
+
+.project p {
+  margin: 6px 0;
+}
+
+.project a {
+  display: inline-block;
+  margin-top: 8px;
+  font-weight: 600;
+}
