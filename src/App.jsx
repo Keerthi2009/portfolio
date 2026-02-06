@@ -1,67 +1,65 @@
+import { useState } from "react";
 import Header from "./components/Header";
 import Section from "./components/Section";
 import Project from "./components/Project";
-import "./index.css";
+import SettingsButton from "./components/SettingsButton";
+import SettingsPanel from "./components/SettingsPanel";
 
 export default function App() {
+  const [settingsOpen, setSettingsOpen] = useState(false);
+
   return (
     <>
+      {/* <SettingsButton onClick={() => setSettingsOpen(true)} /> */}
+      <SettingsPanel
+        open={settingsOpen}
+        onClose={() => setSettingsOpen(false)}
+      />
+
       <Header />
 
-      <Section title="About Me">
-        Senior Software Engineer with X+ years of experience building scalable,
-        maintainable systems. Focused on architecture, performance, and mentoring
-        engineers. Targeting a Tech Lead role.
-      </Section>
+      <main>
+        <Section title="About">
+          I’m <b>Keerthi Narayana Prasad</b>, a Senior Software Engineer specializing in
+          frontend-heavy systems using <b>React</b> and <b>Vue</b>. I focus on building
+          scalable UI architectures, improving performance, and mentoring engineers —
+          with a clear goal of stepping into a <b>Tech Lead</b> role.
+        </Section>
 
-      <Section title="Technical Skills">
-        <ul>
-          <li><b>Frontend:</b> React, Vue, TypeScript</li>
-          <li><b>Backend:</b> Node.js, REST APIs</li>
-          <li><b>Databases:</b> PostgreSQL, MySQL</li>
-          <li><b>System Design:</b> Scalable architecture, API design</li>
-          <li><b>DevOps:</b> Git, CI/CD, Docker</li>
-        </ul>
-      </Section>
+        <Section title="What I Bring as a Lead">
+          <ul>
+            <li>Ownership of complex, business-critical UI systems</li>
+            <li>Clear architectural decisions with long-term thinking</li>
+            <li>Strong code quality culture through reviews & mentorship</li>
+            <li>Effective collaboration with backend, product, and design</li>
+          </ul>
+        </Section>
 
-      <Section title="Leadership & Impact">
-        <ul>
-          <li>Led architecture discussions and code reviews</li>
-          <li>Mentored junior & mid-level engineers</li>
-          <li>Owned features end-to-end</li>
-          <li>Reduced production incidents</li>
-        </ul>
-      </Section>
+        <Section title="Key Projects">
+          <Project
+            title="Enterprise Workflow Platform"
+            description="Led frontend architecture, improved performance, and reduced developer onboarding time."
+          />
+          <Project
+            title="Contract & Document Preview System"
+            description="Designed secure previews, optimized rendering, and improved UX for large documents."
+          />
+        </Section>
 
-      <Section title="Key Projects">
-        <Project
-          title="Enterprise Workflow Management System"
-          description="Owned frontend architecture and performance improvements."
-        />
-        <Project
-          title="Contract & Document Preview Platform"
-          description="Designed secure document previews and optimized rendering."
-        />
-      </Section>
+        <Section title="Career Direction">
+          My goal is to move into a <b>Tech Lead</b> role where I can own systems,
+          guide technical direction, mentor engineers, and align execution with
+          business outcomes.
+        </Section>
 
-      <Section title="Career Goal">
-        Move into a Tech Lead role owning systems, mentoring teams,
-        and aligning engineering with business goals.
-      </Section>
+        <Section title="Contact">
+          <p><b>Email:</b> keerthi@example.com</p>
+          <p><b>GitHub:</b> github.com/keerthi</p>
+          <p><b>LinkedIn:</b> linkedin.com/in/keerthi</p>
+        </Section>
+      </main>
 
-      <Section title="Contact">
-        <p>Email: your.email@example.com</p>
-        <p>
-          GitHub: <a href="https://github.com/yourname">github.com/yourname</a>
-        </p>
-        <p>
-          LinkedIn: <a href="https://linkedin.com/in/yourname">
-            linkedin.com/in/yourname
-          </a>
-        </p>
-      </Section>
-
-      <footer>© 2026 Your Name</footer>
+      <footer>© 2026 Keerthi Narayana Prasad</footer>
     </>
   );
 }
